@@ -1,0 +1,197 @@
+div.nonOwnProfilePostList h3{
+    color:white;
+}
+
+.shortLineNonOwnProfilePostList{
+    color:white;
+    width: 45%;
+    margin-left: 65px;
+}
+
+.followandfollowby {
+            margin-left: 65px;
+            margin-top: 40px;
+}
+
+.followandfollowby a {
+            text-decoration: none;
+            display: inline-block;
+            color: white;
+            z-index: 0;
+            cursor:pointer;
+}
+
+a#following-list-button {
+    margin-left: 115px;
+}
+
+ .item-content1{
+            padding-top: 90px;
+            padding-left:65px;
+ }
+
+ .flex-container-OwnUserProfile{
+     display: flex;
+     align-items: center;
+     justify-content: right;
+ }
+
+.flex-item-OwnUserProfile_editProfileButton{
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    margin-right: 50px;
+
+}
+
+.nonOwnProfilePostList h3{
+    margin-top: 40px;
+    margin-left: 65px;
+}
+
+.shortLineNonOwnProfileList{
+    margin-left: 65px;
+    width: 550px;
+}
+
+div.grid-container-notOwnProfile{
+    padding-top:50px;
+    padding-left: 65px;
+}
+
+.close.btn-1{
+    cursor:pointer;
+    color:white;
+}
+
+.close.btn-2{
+    cursor:pointer;
+    color:white;
+}
+
+h1.follow_list_title-2{
+    color:white;
+}
+
+h1.follow_by_list_title-1{
+    color:white;
+}
+
+.popup-1 .overlay-1{
+    position: fixed;
+    top:0px;
+    left:0px;
+    width:100vw;
+    height:100vh;
+    background: rgba(0,0,0,0.7);
+    z-index: 1;
+    display: none;
+}
+
+.popup-2 .overlay-2{
+    position: fixed;
+    top:0px;
+    left:0px;
+    width:100vw;
+    height:100vh;
+    background: rgba(0,0,0,0.7);
+    z-index: 1;
+    display: none;
+}
+
+.popup-1 .content-1{
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%, -50%) scale(0);
+    background: #222222;
+    width: 450px;
+    height: 220px;
+    z-index: 2;
+    text-align: left;
+    box-sizing: border-box;
+          overflow-y: scroll;
+}
+
+.popup-2 .content-2{
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%, -50%) scale(0);
+    background: #222222;
+    width: 450px;
+    height: 220px;
+    z-index: 2;
+    text-align: left;
+    box-sizing: border-box;
+    overflow-y: scroll;
+}
+
+.popup-1 .close-btn-1{
+      position:absolute;
+      right:20px;
+      top:20px;
+      width:30px;
+      height:30px;
+      color:white;
+      font-size:25px;
+      font-weight:600;
+      line-height:30px;
+      text-align:center;
+      border-radius:50%;
+      cursor:pointer;
+
+
+  }
+
+.popup-2 .close-btn-2{
+      position:absolute;
+      right:20px;
+      top:20px;
+      width:30px;
+      height:30px;
+      color:white;
+      font-size:25px;
+      font-weight:600;
+      line-height:30px;
+      text-align:center;
+      border-radius:50%;
+      cursor:pointer;
+
+
+  }
+
+
+  .popup-1.active .overlay-1{
+      display: block;
+  }
+
+   .popup-2.active .overlay-2{
+      display: block;
+  }
+
+
+
+  .popup-1.active .content-1{
+      transition:all 300ms ease-in-out;
+      transform:translate(-50%, -50%) scale(1);
+  }
+
+  .popup-2.active .content-2{
+      transition:all 300ms ease-in-out;
+      transform:translate(-50%, -50%) scale(1);
+  }
+
+  div.grid-container-notOwnProfile {
+    display: grid;
+    grid-template-columns: auto 40px;
+    grid-column-gap: 10px;
+    align-items: center;
+    padding-left: 65px;
+    padding-bottom: 200px;
+  }
+
+  .btn-outline-danger {
+      --bs-btn-color: #ffffff;
+  }
+

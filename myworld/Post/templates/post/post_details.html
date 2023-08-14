@@ -1,0 +1,115 @@
+{% extends 'NotSigningInBaseLayout.html' %}
+{% block content %}
+    <div class="user-info-post_details">
+        {% load static %}
+        {% if detail_display.creator.profile.profile_image %}
+            <img id="user-logo-post_details" src="{{ detail_display.creator.profile.profile_image.url }}" width="70"
+                 height="70" alt="用戶logo相片" class="rounded-circle">
+        {% else %}
+            <img id="user-logo-post_details" src="{% url '11zon_cropped 1.png' %}" width="70" height="70"
+                 alt="用戶logo相片" class="rounded-circle">
+        {% endif %}
+        <span class="username-post_details">{{ detail_display.creator.first_name }}</span>
+    </div>
+
+    <header>
+        <h3 class="title-post_details">{{ detail_display.title }}</h3>
+        <h2 class="post-date">日期：{{ detail_display.date }}</h2>
+    </header>
+
+    <section>
+        {% if detail_display.Cover %}
+            <img id="food-image-post_details" src="{{ detail_display.Cover.url }}" alt="food-image">
+        {% else %}
+        {% endif %}
+        <h4 class="brief-post_details">{{ detail_display.brief }}</h4>
+        <!--<h4 class="brief-post_details">春風拂面，微笑如花。彩蝶翩翩，盡情飛舞。夏日炎炎，冰淇淋解渴。清晨曙光，小鳥歌唱。秋風瑟瑟，楓葉飄落。冬雪紛飛，白茫茫一片。生活如詩，擁抱每一刻。廢文就是這樣，無厘頭又好玩。好啦，我就這樣廢廢地寫了五十個字！</h4>-->
+    </section>
+
+    <article>
+        {% if detail_display.image %}
+            <img class="food-image-extra-post_details" src="{{ detail_display.image.url }}" alt="food-image">
+        {% else %}
+        {% endif %}
+        <h4 class="content">{{ detail_display.body }}</h4>
+        <!--<h4 class="content">在這種困難的抉擇下，本人思來想去，寢食難安。就我個人來說，&#38622;&#32905;&#24456;&#22909;&#21507;對我的意義，不能不說非常重大。其實&#38622;&#32905;&#24456;&#22909;&#21507;是非常值得我們深思的。我們一般認為，抓住了問題的關鍵，其他一切則會迎刃而解。一般來講，我們都必須務必慎重的考慮考慮。呂坤有講過一句名言，貧不足羞，可羞是貧而無志。這不禁令我深思。我認為，雷鋒有說過，自己活著，就是為了使別人過得更美好。這句話語雖然很短，但令我浮想聯翩。&#38622;&#32905;&#24456;&#22909;&#21507;真的是很值得探究，羅丹曾經說過，為了生活中努力發揮自己的作用，熱愛人生吧。我希望諸位也能好好地體會這句話。既然如此，普列姆昌德有講過一句名言，希望的燈一旦熄滅，生活剎那間變成了一片黑暗。這讓我思索了許久，海貝爾曾經告訴世人，人生就是學校。在那里，與其說好的教師是幸福，不如說好的教師是不幸。這讓我深深地想到，每個人都不得不面對這些問題。 在面對這種問題時，孔丘曾經說過這麼一句話，三軍可奪帥也，匹夫不可奪志也。這不禁令我深思。</h4>-->
+    </article>
+
+    <div class="flex-container-post_details">
+        <div class="flex-item" id="like-number-post_details">
+            {{ detail_display.number_of_like }}
+        </div>
+        <div class="flex-item" id="like-post_details">
+            讚好
+        </div>
+        <div class="flex-item" id="dislike-number-post_details">
+            {{ detail_display.number_of_dislike }}
+        </div>
+        <div class="flex-item" id="dislike-post_details">
+            倒讚
+        </div>
+        <div class="flex-item" id="comment-number-post_details">
+            8
+        </div>
+        <div class="flex-item" id="comment-post_details">
+            回應
+        </div>
+        <a href="{% url 'post:post_like' detail_display.id %}">
+        <button id="thumbs-up-btn" class="thumbs-up-btn">
+            <i class="fa fa-thumbs-up"></i>
+        </button>
+        </a>
+
+        <a href="{% url 'post:post_dislike' detail_display.id %}">
+        <button id="thumbs-down-btn" class="thumbs-down-btn">
+            <i class="fa fa-thumbs-down"></i>
+        </button>
+        </a>
+        <button id="bookmark" class="bookmark-btn">
+            <i class="fa fa-bookmark"></i>
+        </button>
+    </div>
+    <h2 id="comment-area-title-name">回應</h2>
+    <hr class="short-line-comment">
+    <div class="comment-container">
+        <section>
+            <div class="grid-container-post_details" id="comment-list">
+                <div class="grid-item-post_details" id="comment-list"></div>
+                <div class="user-info-post_details">
+                    {% load static %}
+                    <img id="comment-user-profile-picture" src="{% static '11zon_cropped%201.png' %}" width="70"
+                         height="70" alt="用戶logo相片">
+                    <span class="comment-username">非洲小黑人</span>
+                </div>
+            </div>
+        </section>
+        <article>
+            <h3 class="comment-content">這是一個留言</h3>
+        </article>
+        <hr class="short-line-comment">
+    </div>
+    <div class="comment-container">
+        <section>
+            <div class="grid-container-post_details" id="comment-list">
+                <div class="grid-item-post_details" id="comment-list"></div>
+                <div class="user-info">
+                    {% load static %}
+                    <img id="comment-user-profile-picture" src="{% static '11zon_cropped%201.png' %}" width="70"
+                         height="70" alt="用戶logo相片">
+                    <span class="comment-username">非洲小黑人</span>
+                </div>
+            </div>
+        </section>
+        <article>
+            <h3 class="comment-content">這是一個留言</h3>
+            {% load static %}
+            <img class="comment-image" src="{% static 'foodPicture.png' %}" width="150" height="100"
+                 alt="留言圖片或影片">
+        </article>
+        <hr class="short-line-comment">
+    </div>
+
+    <div class="comment-box">
+        <h2 class="comment-box-title">留言</h2>
+    </div>
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends 'NotSigningInBaseLayout.html' %}
+{% block content %}
+    <div class="create-post">
+    <h2 style="color: white">編輯帖文</h2>
+    <form class="site-form" action="{% url 'post:create' %}" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">上傳</button>
+    </form>
+    </div>
+{% endblock %}
+

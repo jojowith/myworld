@@ -1,0 +1,51 @@
+{% extends 'NotSigningInBaseLayout.html' %}
+{% block css %}
+    <style>
+        #first_name {
+            display: flex;
+            width: 100%;
+            height: 100%;
+            margin-bottom: 15%;
+        }
+    </style>
+{% endblock %}
+{% block content %}
+    <div class="container-signup">
+        <!--標題-->
+        <div class="SignUp">
+            <h1>註冊帳號</h1>
+
+            <!--輸入欄位表單-->
+            <form method="POST" action="." class="login-form spacer" id="signup-form">
+                {% csrf_token %}
+                <div class="form-group">
+                    {{ form.first_name }}
+                    <!--<label for="username">用戶名稱</label>-->
+                    <!--<input type="text" id="username" placeholder="用戶名稱">-->
+                </div>
+
+                <div class="input-group mb3">
+                    <!--<label for="accountName">帳戶名</label>-->
+                    <span class="input-group-text" id="basic-addon1">@</span>
+                    {{ form.username }}
+                    <!--<input type="text" class="form-control" id="accountName" placeholder="帳戶名" aria-label="帳戶名" aria-describedby="basic-addon1">-->
+                </div>
+
+                <div class="form-group">
+                    {{ form.password1 }}
+                    <!--<label for="password">密碼</label>-->
+                    <!--<input type="password" id="password" placeholder="密碼">-->
+                </div>
+
+                <div class="form-group">
+                    {{ form.password2 }}
+                    <!--<label for="password-confirmation">確認密碼</label>-->
+                    <!--<input type="password" id="password-confirmation" placeholder="確認密碼">-->
+                </div>
+
+                <input class="btn btn-success w-45" type="submit" value="註冊">
+                <a class="btn btn-secondary" href="{% url 'accounts:signin' %} " role="button">已有帳號，可進行登入</a>
+            </form>
+        </div>
+    </div>
+{% endblock %}

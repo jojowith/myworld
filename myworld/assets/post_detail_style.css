@@ -1,0 +1,184 @@
+img#user-logo-post_details{
+            margin-left: 100px;
+            margin-top:100px;
+        }
+
+        div.user-info-post_details{
+        display:flex;
+        align-items: center;
+        }
+        span.username-post_details{
+        padding-left:20px;
+        padding-top:100px;
+        color:#FFFFFF
+        }
+
+        header h3.title-post_details{
+        font-size: 20px;
+        margin-left: 115px;
+        color:#FFFFFF;
+        }
+
+        header h2.post-date{
+        font-size:15px;
+        margin-left: 115px;
+        color:#FFFFFF
+        }
+
+        img#food-image-post_details{
+        margin-left: 115px;
+        }
+
+        section h4.brief-post_details{
+        margin-left: 115px;
+        width:500px;
+        color:#FFFFFF;
+        }
+
+        article img.food-image-extra-post_details{
+        margin-top: 45px;
+        margin-left: 115px;
+        max-width: 800px;
+        }
+
+        article h4.content{
+        margin-left: 115px;
+        width:500px;
+        color: #FFFFFF;
+        }
+
+        .flex-container-post_details{
+            display: flex;
+            flex-direction: row;
+            margin-left: 115px;
+        }
+
+        .fa-thumbs-up:before {
+            font-size:24px;
+        }
+
+        #like-number-post_details{
+            margin-right: 15px;
+            color:#FFFFFF;
+        }
+
+        #like-post_details{
+            margin-right: 15px;
+            color:#FFFFFF;
+        }
+
+        #dislike-number-post_details{
+            margin-right: 15px;
+            color:#FFFFFF;
+        }
+
+        #dislike-post_details{
+            margin-right: 15px;
+            color:#FFFFFF;
+        }
+
+        #comment-number-post_details{
+            margin-right:15px;
+            color:#FFFFFF;
+        }
+
+        #comment-post_details{
+            color:#FFFFFF;
+        }
+
+        .thumbs-up-btn {
+  	    color: white;
+  	    border: none;
+  	    cursor: pointer;
+	    background:none;
+        margin-left: 120px;
+        margin-right: 35px;
+        margin-top: -5px;
+	    }
+
+	    .fa-thumbs-up:active{
+         color:red;
+     }
+
+        .fa-thumbs-down:before {
+            font-size: 24px
+        }
+        .thumbs-down-btn {
+  	    color: white;
+  	    border: none;
+  	    cursor: pointer;
+	    background:none;
+        margin-right: 35px;
+        margin-top: -5px;
+	    }
+
+	    .fa-thumbs-down:active{
+         color:red;
+     }
+
+        .fa-bookmark:before {
+            font-size: 24px
+        }
+        .bookmark-btn {
+  	    color: white;
+  	    border: none;
+  	    cursor: pointer;
+	    background:none;
+        margin-top: -5px;
+	    }
+
+	    .fa-thumbs-down:active{
+         color:red;
+     }
+
+        h2#comment-area-title-name{
+            margin-top: 55px;
+            margin-left: 115px;
+        }
+        .short-line-comment{
+            width:45%;
+            margin-left: 115px;
+            border-color: white;
+        }
+
+        #comment-user-profile-picture{
+            margin-top:20px;
+            margin-left:115px;
+            margin-right: 15px;
+        }
+
+        div.user-info-post_details {
+        display: flex;
+        align-items: center;
+        }
+
+        span.comment-username{
+        padding-top:10px;
+        color:#FFFFFF;
+        }
+
+        article h3.comment-content{
+            margin-left: 195px;
+            color:#FFFFFF;
+        }
+
+        .comment-image{
+            margin-left: 195px;
+        }
+
+        .comment-box-title{
+            margin-left: 115px;
+            margin-top: 55px;
+        }
+
+        #comment-area-title-name{
+            color:#FFFFFF;
+        }
+
+        .comment-box-title{
+            color:#FFFFFF;
+        }
+
+        #food-image-post_details{
+            max-width: 800px;
+        }

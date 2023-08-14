@@ -1,0 +1,42 @@
+body{
+    background-color: #000000;
+}
+
+.navbar{
+    background-color: #FFCA3B;
+}
+
+.button.navbar-toggler span{
+    border:#5A48C9
+}
+
+li a.nav-link{
+    color:#FFFFFF;
+    font-size:15px;
+    font-weight:900;
+}
+
+li a.nav-link:hover{
+    color:#5A48C9;
+    font-weight:900;
+
+}
+
+li a.nav-link button{
+
+    font-weight:900;
+    color:#FFFFFF;
+    background-color:#5A48C9 ;
+    border:none;
+    border-radius:18px;
+    padding-left: 8px;
+    padding-right:8px;
+}
+
+
+li a.nav-link button:hover{
+    background-color: #FFFFFF;
+    color:#5A48C9;
+    transition: background-color 0.15s, color 0.15s;
+}
+

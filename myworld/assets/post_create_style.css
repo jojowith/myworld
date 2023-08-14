@@ -1,0 +1,12 @@
+label {
+    color: white;
+}
+
+button {
+
+    font-weight: 900;
+    color: #FFFFFF;
+    background-color: #5A48C9;
+    border: none;
+    border-radius: 18px;
+}

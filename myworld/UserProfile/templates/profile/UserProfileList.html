@@ -1,0 +1,39 @@
+{% extends 'NotSigningInBaseLayout.html' %}
+
+{% block content %}
+    <div class="UserProfileWholePage">
+        <div class="UserProfile">
+            <!-- 標題-->
+            <h1>追蹤創作者</h1>
+        </div>
+        <hr class="short-line-userprofilelist">
+        <br/>
+        {% if profiles %}
+            {% for profile in profiles %}
+                <a class="navbar-brand" href="{% url 'profile:notownprofile' profile.user.username %}">
+                <div class="card-container-userprofile">
+                    <div class="card-body">
+                        {% load static %}
+                        {% if profile.profile_image %}
+                            <img class="carduserprofileimage" src="{{ profile.profile_image.url }}" width="80"
+                                 height="80" alt="{{ profile.user.username }}">
+
+                        {% else %}
+                            <img class="carduserprofileimage" src="{% static '11zon_cropped%201.png' %}" width="80"
+                                 height="80" alt="Card Image">
+
+                        {% endif %}
+                        <span class="userprofiletext">
+                        <h2>{{ profile.user.first_name }}</h2>
+                        <p class="card-text-userprofile">@{{ profile.user.username }}</p>
+                        </span>
+                    </div>
+                </div>
+                <!--</a>-->
+                <br/><br/>
+            {% endfor %}
+        {% endif %}
+        </a>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,35 @@
+div.UserProfileWholePage{
+    color:#FFFFFF;
+}
+
+div.UserProfile h1{
+    margin-top: 85px;
+    margin-left: 110px;
+}
+
+hr.short-line-userprofilelist{
+    width:45%;
+    margin-top:10px;
+    margin-left: 110px;
+}
+
+.card-container-userprofile{
+    display: flex;
+    align-items: center;
+    justify-content: left;
+}
+
+.card-body{
+    margin-left: 110px;
+}
+
+img.carduserprofileimage{
+    max-width: 100%;
+    max-height: 100%;
+    border-radius: 50%;
+    float:left;
+}
+
+.card-text-userprofile{
+    font-size:25px;
+}

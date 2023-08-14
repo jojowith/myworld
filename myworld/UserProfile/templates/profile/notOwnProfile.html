@@ -1,0 +1,155 @@
+{% extends 'NotSigningInBaseLayout.html' %}
+{% block profile_image %}
+{% endblock %}
+{% block content %}
+    {% if notOwnProfile %}
+        <div class="popup-1" id="popup-1-1">
+            <div class="overlay-1"></div>
+            <div class="content-1">
+                <div class="close-btn-1" onclick="togglePopup1()">&times;</div>
+                <h1 class="follow_by_list_title-1">追蹤者</h1><br/>
+                <p>{% for following in notOwnProfile.followed_by.all %}
+                    <a style="font-size: 25px"
+                       href="{% url 'profile:notownprofile' following.user %}">@{{ following }}</a>
+                    </br>
+                {% endfor %}</p>
+                <a href="{% url 'profile:profile_list' %}">更多使用者</a>
+            </div>
+            <div class="popup-2" id="popup-2-2">
+                <div class="overlay-2"></div>
+                <div class="content-2">
+                    <div class="close-btn-2" onclick="togglePopup2()">&times;</div>
+                    <h1 class="follow_list_title-2">追蹤中</h1><br/>
+                    <p>{% for following in notOwnProfile.follows.all %}
+                        <a style="font-size: 25px"
+                           href="{% url 'profile:notownprofile' following.user %}">@{{ following }}</a>
+                        </br>
+                    {% endfor %}</p>
+                    <a href="{% url 'profile:profile_list' %}">更多使用者</a>
+                </div>
+            </div>
+            <div class="username_id">
+                <div class="item-content1">
+                    {% load static %}
+                    {% if notOwnProfile.profile_image %}
+                        <img style="width: 50px" height="50px" src="{{ notOwnProfile.profile_image.url }}"
+                             class="rounded-circle">
+                    {% else %}
+                        <img style="width: 50px" height="50px" src="{%static '11zon_cropped%201.png'%}"
+                             class="rounded-circle">
+                    {% endif %}
+                    <p style="color: white; margin-top: 20px">{{ notOwnProfile.user.first_name }}</p>
+                    <p style="color: white">@{{ notOwnProfile.user.username }}</p>
+                </div>
+
+                {% if notOwnProfile.user != request.user %}
+                    <form method=POST>
+                    {% csrf_token %}
+                    {% if notOwnProfile in user.profile.follows.all %}
+                        <div class="item-content2">
+                            <button type="submit" class="btn btn-outline-danger" name="follow" value="unfollow">
+                                取消追蹤
+                            </button>
+                            <!-- <div class="flex-item-OwnUserProfile_signOut">
+                                 <a class="nav-link" href="#">
+                                     <button>登出</button>
+                                 </a>
+                             </div>-->
+                        </div>
+                    {% else %}
+                        <div class="item-content2">
+                            <button type="submit" class="btn btn-outline-danger" name="follow" value="follow">追蹤
+                            </button>
+                        </div>
+                    {% endif %}
+
+                {% else %}
+                    <div class="flex-container-OwnUserProfile">
+                        <div class="item-content2">
+                            <div class="flex-item-OwnUserProfile_editProfileButton">
+                                <a class="nav-link" href="{% url 'profile:update_user' request.user.username %}">
+                                    <input class="btn btn-outline-danger" style="margin-right: 150px;" type="button"
+                                           value="編輯個人檔案"/></a><a class="nav-link"
+                                                                        href="{% url 'accounts:logout' %}"><input
+                                    class="btn btn-outline-danger" type="button" value="登出"/></a>
+                            </div>
+                        </div>
+                    </div>
+
+                {% endif %}
+                </form>
+            </div>
+            <div class="followandfollowby">
+                <a onclick="togglePopup1()" class="popup-btn">追蹤者 {{ notOwnProfile.followed_by.count }}</a>
+                <a onclick="togglePopup2()" class="popup-btn"
+                   id="following-list-button">追蹤中 {{ notOwnProfile.follows.count }}</a>
+            </div>
+
+            <div class="nonOwnProfilePostList">
+                <h3>全部帖文</h3>
+                <hr class="shortLineNonOwnProfilePostList"/>
+            </div>
+            <div class="grid-container-notOwnProfile">
+                <div class="grid-item">
+                    <a class="post-list-title" href="#">
+                        <h3 class="title">這是標題一句主標題的示範</h3>
+                    </a>
+                    <div class="user-info">
+                        {% load static %}
+                        {% if notOwnProfile.profile_image %}
+                            <img id="user-logo" src="{{ notOwnProfile.profile_image.url }}" width="40" height="40"
+                                 alt="{{ notOwnProfile.user.username }}" class="rounded-circle">
+                        {% else %}
+                            <img id="user-logo" src="{% static '11zon_cropped%201.png' %}" width="40" height="40"
+                                 alt="{{ notOwnProfile.user.username }}">
+                        {% endif %}
+                        <span class="username">{{ notOwnProfile.user.username }}</span>
+                    </div>
+                    <section id="brief">
+                        春風拂面，微笑如花。彩蝶翩翩，盡情飛舞。夏日炎炎，冰淇淋解渴。清晨曙光，小鳥歌唱。秋風瑟瑟，楓葉飄落。冬雪紛飛，白茫茫一片。生活如詩，擁抱每一刻。廢文就是這樣，無厘頭又好玩。好啦，我就這樣廢廢地寫了五十個字！.........
+                    </section>
+
+                    {% load static %}
+                    <img id="food-image" src="{% static 'foodPicture.png' %}" width="280" height="200"
+                         alt="food-image">
+
+                    <!--<div class="flex-container" style="display: flex; flex-direction: row;">-->
+                    <div class="flex-container">
+                        <div class="flex-item" id="like-number">
+                            19
+                        </div>
+                        <div class="flex-item" id="like">
+                            讚好
+                        </div>
+                        <div class="flex-item" id="dislike-number">
+                            3
+                        </div>
+                        <div class="flex-item" id="dislike">
+                            倒讚
+                        </div>
+                        <div class="flex-item" id="comment-number">
+                            8
+                        </div>
+                        <div class="flex-item" id="comment">
+                            回應
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endif %}
+{% endblock %}
+{% block script %}
+    <script>
+        function togglePopup1() {
+            document.getElementById("popup-1-1").classList.toggle("active");
+        }
+    </script>
+{% endblock %}
+{% block script_1 %}
+    <script>
+        function togglePopup2() {
+            document.getElementById("popup-2-2").classList.toggle("active");
+        }
+    </script>
+{% endblock %}

@@ -1,0 +1,115 @@
+{% extends 'NotSigningInBaseLayout.html' %}
+{% load static %}
+{% block css %}
+    <style>
+        .top {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-top: 100px;
+        }
+
+        .top .title {
+            color: white;
+            margin-right: 20%;
+
+        }
+
+        .mid {
+            height: 200px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-right: 28%;
+        }
+
+        .mid img {
+            float: left;
+
+        }
+
+        .account {
+            margin-left: 2%;
+            color: white;
+            float: right;
+        }
+
+        .user_name {
+            width: 100%;
+            height: 200px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .user_name h3 {
+            color: white;
+            margin-right: 1%;
+        }
+
+        .user_name input {
+            width: 30%;
+        }
+
+        .introducing {
+            width: 100%;
+            height: 200px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            flex-direction: column;
+        }
+
+        .introducing h3 {
+            color: white;
+            margin-right: 31%;
+        }
+
+        .introducing textarea {
+            height: 70%;
+            width: 37%;
+        }
+
+
+    </style>
+{% endblock %}
+{% block content %}
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="top">
+            <div class="title">
+                <h1>編輯個人檔案</h1>
+            </div>
+            <div class="button">
+                <button type="submit">處存變更</button>
+            </div>
+        </div>
+
+        <div class="mid">
+            {% if notOwnProfile.profile_image %}
+                <img style="width: 50px" height="50px" src="{{ notOwnProfile.profile_image.url }}"
+                     class="rounded-circle">
+            {% endif %}
+            <div class="account">
+                <p>@{{ notOwnProfile.user.username }}</p>
+                <a href="#">{{ profile_form.as_p }}</a>
+            </div>
+        </div>
+
+        <div class="user_name">
+            <h3>用戶名稱:</h3>
+            {{ user_form.first_name }}
+        </div>
+
+
+        <div class="introducing">
+            <h3>個人介紹:</h3>
+            <textarea></textarea>
+        </div>
+    </form>
+
+{% endblock %}

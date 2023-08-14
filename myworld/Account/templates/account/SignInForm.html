@@ -1,0 +1,32 @@
+{% extends 'NotSigningInBaseLayout.html' %}
+        {% block content %}
+<div class="container-signin">
+        <!--標題-->
+        <div class="SignIn">
+            <h1>登入帳號</h1>
+
+            <!--輸入欄位表單-->
+            <form class="site-form" action="{% url 'accounts:signin' %}" method="post">
+                {% csrf_token %}
+                <div class="input-group mb-3">
+                    <!--<label for="accountName">帳戶名</label>-->
+                    <span class="input-group-text" id="basic-addon1" name="username">@</span>
+                    <input type="text" class="form-control" id="username" name="username" placeholder="帳戶登入名稱" aria-label="帳戶登入名稱" aria-describedby="basic-addon1">
+                </div>
+
+                <div class="form-group">
+                    <!--<label for="password">密碼</label>-->
+                    <input class='form-control' required="" type="password" id="password" name= "password" placeholder="密碼" maxlength="22" minlength="8">
+                </div>
+
+
+                {% if request.GET.next %}
+                    <input type="hidden" name="next" value="{{ request.GET.next }}">
+                {% endif %}
+
+                <input class="btn btn-success w-45" id="signin" type="submit" value="登入">
+                    <a class="btn btn-secondary" href="{% url 'accounts:signup' %} "role="button">如沒有帳號，請先進行註冊</a>
+            </form>
+        </div>
+</div>
+        {% endblock %}
